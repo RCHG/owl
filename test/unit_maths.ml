@@ -39,6 +39,10 @@ module To_test = struct
 
   let test_k1e () = approx_equal (M.k1e 0.3) 4.12515776224447
 
+  let test_h1n_re () = approx_equal (M.h1n 0.1 0.3).re  0.85180759557596664
+
+  let test_h1n_im () = approx_equal (M.h1n 0.3 0.2).im  (-1.470298525261079)
+
   let test_airy () =
     let a, b, c, d = M.airy 0.7 in
     approx_equal a 0.18916240039814997
@@ -196,6 +200,10 @@ let test_k1 () = Alcotest.(check bool) "test k1" true (To_test.test_k1 ())
 
 let test_k1e () = Alcotest.(check bool) "test k1e" true (To_test.test_k1e ())
 
+let test_h1n_re () = Alcotest.(check bool) "test h1n_re" true (To_test.test_h1n_re ())
+
+let test_h1n_im () = Alcotest.(check bool) "test h1n_im" true (To_test.test_h1n_im ())
+
 let test_airy () = Alcotest.(check bool) "test airy" true (To_test.test_airy ())
 
 let test_ellipj () = Alcotest.(check bool) "test ellipj" true (To_test.test_ellipj ())
@@ -280,6 +288,7 @@ let test_set =
   ; "test i0", `Slow, test_i0; "test i0e", `Slow, test_i0e; "test i1", `Slow, test_i1
   ; "test i1e", `Slow, test_i1e; "test iv", `Slow, test_iv; "test k0", `Slow, test_k0
   ; "test k0e", `Slow, test_k0e; "test k1", `Slow, test_k1; "test k1e", `Slow, test_k1e
+  ; "test h1n_re", `Slow, test_h1n_re; "test h1n_im", `Slow, test_h1n_im
   ; "test ellipj", `Slow, test_ellipj; "test airy", `Slow, test_airy
   ; "test ellipj", `Slow, test_ellipj; "test ellipk", `Slow, test_ellipk
   ; "test ellipkm1", `Slow, test_ellipkm1; "test ellipkinc", `Slow, test_ellipkinc

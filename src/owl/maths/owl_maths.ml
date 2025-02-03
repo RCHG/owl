@@ -4,7 +4,7 @@
  *)
 
 module CI = Cstubs_internals
-
+module Ce = Complex
 (** Basic and advanced math functions *)
 
 let add = ( +. )
@@ -222,6 +222,9 @@ let k0e x = Owl_maths_special.k0e x
 let k1 x = Owl_maths_special.k1 x
 
 let k1e x = Owl_maths_special.k1e x
+
+let h1n v x = Ce.{ re=(Owl_maths_special.jv v x) ; im=(Owl_maths_special.yv v x) }  
+let h2n v x = Ce.{ re=(Owl_maths_special.jv v x) ; im=((-1.0) *. (Owl_maths_special.yv v x)) } 
 
 let expn n x = Owl_maths_special.expn n x
 

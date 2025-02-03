@@ -281,6 +281,14 @@ val k1 : float -> float
 val k1e : float -> float
 (** Exponentially scaled modified Bessel function K of order 1. *)
 
+val h1n : float -> float -> Owl_base_complex.t
+(** Hankel first kind: h1a = jv + i yv *)
+
+val h2n : float -> float -> Owl_base_complex.t
+(** Hankel second kind: h1a = jv - i yv *)
+
+
+
 (** {5 Elliptic functions} *)
 
 val ellipj : float -> float -> float * float * float * float
